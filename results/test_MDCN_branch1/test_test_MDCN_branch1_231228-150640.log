@@ -1,0 +1,207 @@
+23-12-28 15:06:40.188 - INFO:   name: test_MDCN_branch1
+  model: sr
+  distortion: sr
+  scale: [2, 3, 4]
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: MDCN
+    scale: [2, 3, 4]
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT
+      dataroot_GT: /home/data/disk2/wsq/Datasets/DIV2K/DIV2K_valid_HR/
+      dataroot_LQ: /home/data/disk2/wsq/Datasets/DIV2K/DIV2K_valid_LR_bicubic/X2/
+      phase: test1
+      scale: [2, 3, 4]
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: /home/data/disk3/zl/code/MDCN_paddle/trans_weights/trans_MDCN_x234.pdparams
+    root: /home/data/disk3/zl/code/MDCN_paddle
+    results_root: /home/data/disk3/zl/code/MDCN_paddle/results/test_MDCN_branch1
+    log: /home/data/disk3/zl/code/MDCN_paddle/results/test_MDCN_branch1
+  ]
+  is_train: False
+
+23-12-28 15:06:40.189 - INFO: Dataset [LQGTDataset - set5] is created.
+23-12-28 15:06:40.189 - INFO: Number of test images in [set5]: 100
+23-12-28 15:06:41.048 - INFO: Network G structure: MDCN, with parameters: 15,623,649
+23-12-28 15:06:41.048 - INFO: MDCN(
+  (sub_mean): MeanShift(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  (upsample): LayerList(
+    (0): Upsampler(
+      (0): Conv2D(128, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): PixelShuffle(upscale_factor=2)
+      (2): ReLU()
+    )
+    (1): Upsampler(
+      (0): Conv2D(128, 1152, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): PixelShuffle(upscale_factor=3)
+      (2): ReLU()
+    )
+    (2): Upsampler(
+      (0): Conv2D(128, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (1): PixelShuffle(upscale_factor=2)
+      (2): ReLU()
+      (3): Conv2D(128, 512, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (4): PixelShuffle(upscale_factor=2)
+      (5): ReLU()
+    )
+  )
+  (add_mean): MeanShift(3, 3, kernel_size=[1, 1], data_format=NCHW)
+  (head): Sequential(
+    (0): Conv2D(3, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (body): Sequential(
+    (0): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (1): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (2): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (3): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (4): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (5): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (6): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (7): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (8): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (9): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (10): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+    (11): MDCB(
+      (conv_3_1): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_3_2): Conv2D(96, 96, kernel_size=[3, 3], padding=1, data_format=NCHW)
+      (conv_5_1): Conv2D(128, 128, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (conv_5_2): Conv2D(96, 96, kernel_size=[5, 5], padding=2, data_format=NCHW)
+      (confusion_3): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_5): Conv2D(384, 96, kernel_size=[1, 1], data_format=NCHW)
+      (confusion_bottle): Conv2D(576, 128, kernel_size=[1, 1], data_format=NCHW)
+      (relu): ReLU()
+    )
+  )
+  (dist): Sequential(
+    (0): DB(
+      (fushion_down): Conv2D(1408, 96, kernel_size=[1, 1], data_format=NCHW)
+      (channel_attention): CALayer(
+        (avg_pool): AdaptiveAvgPool2D(output_size=1)
+        (conv_du): Sequential(
+          (0): Conv2D(96, 6, kernel_size=[1, 1], data_format=NCHW)
+          (1): ReLU()
+          (2): Conv2D(6, 96, kernel_size=[1, 1], data_format=NCHW)
+          (3): Sigmoid()
+        )
+      )
+      (fushion_up): Conv2D(96, 128, kernel_size=[1, 1], data_format=NCHW)
+    )
+  )
+  (transform): Sequential(
+    (0): Conv2D(128, 128, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+  (rebult): Sequential(
+    (0): Conv2D(128, 3, kernel_size=[3, 3], padding=1, data_format=NCHW)
+  )
+)
+23-12-28 15:06:41.048 - INFO: Loading model for G [/home/data/disk3/zl/code/MDCN_paddle/trans_weights/trans_MDCN_x234.pdparams] ...
+23-12-28 15:06:41.133 - INFO: Model [SRModel] is created.
+23-12-28 15:06:41.133 - INFO: 
+Testing [set5]...
+23-12-28 15:06:48.603 - INFO: 0801                 - PSNR: 1.775807 dB; SSIM: 0.302887; PSNR_Y: 2.388348 dB; SSIM_Y: 0.154880.

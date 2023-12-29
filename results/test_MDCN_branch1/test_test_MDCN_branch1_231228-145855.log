@@ -1,0 +1,31 @@
+23-12-28 14:58:55.217 - INFO:   name: test_MDCN_branch1
+  model: sr
+  distortion: sr
+  scale: 2
+  crop_border: None
+  gpu_ids: [0]
+  network_G:[
+    which_model_G: MDCN
+    scale: 2
+  ]
+  datasets:[
+    test1:[
+      name: set5
+      mode: LQGT
+      dataroot_GT: /home/data/disk2/wsq/Datasets/DIV2K/DIV2K_valid_HR/
+      dataroot_LQ: /home/data/disk2/wsq/Datasets/DIV2K/DIV2K_valid_LR_bicubic/X2/
+      phase: test1
+      scale: 2
+      data_type: img
+    ]
+  ]
+  path:[
+    pretrain_model_G: /home/data/disk3/zl/code/MDCN_paddle/trans_weights/trans_MDCN_x234.pdparams
+    root: /home/data/disk3/zl/code/MDCN_paddle
+    results_root: /home/data/disk3/zl/code/MDCN_paddle/results/test_MDCN_branch1
+    log: /home/data/disk3/zl/code/MDCN_paddle/results/test_MDCN_branch1
+  ]
+  is_train: False
+
+23-12-28 14:58:55.218 - INFO: Dataset [LQGTDataset - set5] is created.
+23-12-28 14:58:55.219 - INFO: Number of test images in [set5]: 100
