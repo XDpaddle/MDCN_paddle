@@ -1,4 +1,4 @@
-# MDCN_paddle
+## MDCN_paddle
 
 MDCN: Multi-scale Dense Cross Network for Image Super-Resolution
 
@@ -7,11 +7,12 @@ MDCN: Multi-scale Dense Cross Network for Image Super-Resolution
 Paddle 复现版本
 
 ## 数据集
+DIV2K
+https://data.vision.ee.ethz.ch/cvl/DIV2K/
+Set5
+https://drive.google.com/drive/folders/1pRmhEmmY-tPF7uH8DuVthfHoApZWJ1QU
 
-分类之后训练集用于训练SR模块
-https://aistudio.baidu.com/aistudio/datasetdetail/106261
-## aistudio
-脚本任务地址: https://aistudio.baidu.com/aistudio/clusterprojectdetail/2356381
+
 ## 训练模型
 链接：https://pan.baidu.com/s/1jf0UKI_wf7yRhwdA4AU5Kw 
 提取码：u9lr
